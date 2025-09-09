@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pendaftaran VTuber</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .form-container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+    legend {
+      font-weight: bold;
+      color: #444;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #6c63ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #5148d8;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Form Pendaftaran VTuber</h2>
+    <form action="submit.php" method="post">
+
+      <!-- Bagian 1 -->
+      <fieldset>
+        <legend>1. Data Pribadi</legend>
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" name="nama" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="alias">Username / Alias VTuber</label>
+        <input type="text" id="alias" name="alias" required>
+
+        <label for="lahir">Tanggal Lahir</label>
+        <input type="date" id="lahir" name="lahir" required>
+
+        <label for="domisili">Domisili</label>
+        <input type="text" id="domisili" name="domisili">
+      </fieldset>
+
+      <!-- Bagian 2 -->
+      <fieldset>
+        <legend>2. Informasi Channel</legend>
+        <label for="channel">Nama Channel</label>
+        <input type="text" id="channel" name="channel" required>
+
+        <label for="link">Link Channel</label>
+        <input type="url" id="link" name="link" placeholder="https://...">
+
+        <label for="genre">Genre Konten</label>
+        <select id="genre" name="genre" required>
+          <option value="">-- Pilih Genre --</option>
+          <option value="gaming">Gaming</option>
+          <option value="musik">Musik</option>
+          <option value="podcast">Podcast / Talkshow</option>
+          <option value="hiburan">Hiburan / Variety</option>
+          <option value="edukasi">Edukasi</option>
+          <option value="lainnya">Lainnya</option>
+        </select>
+
+        <label for="pengalaman">Pengalaman Streaming</label>
+        <textarea id="pengalaman" name="pengalaman" rows="3" placeholder="Ceritakan pengalamanmu..."></textarea>
+      </fieldset>
+
+      <!-- Bagian 3 -->
+      <fieldset>
+        <legend>3. Konsep Avatar</legend>
+        <label for="avatar">Deskripsi Avatar</label>
+        <textarea id="avatar" name="avatar" rows="4" placeholder="Ceritakan avatar VTuber-mu..." required></textarea>
+
+        <label for="inspirasi">Inspirasi Karakter</label>
+        <input type="text" id="inspirasi" name="inspirasi" placeholder="Misterius, ceria, dark, dll">
+
+        <label for="model">Model Avatar</label>
+        <select id="model" name="model" required>
+          <option value="">-- Pilih Model --</option>
+          <option value="2d">2D Live2D</option>
+          <option value="3d">3D</option>
+          <option value="belum">Belum Ada</option>
+        </select>
+      </fieldset>
+
+      <!-- Bagian 4 -->
+      <fieldset>
+        <legend>4. Keterampilan Tambahan</legend>
+        <label for="voice">Voice Acting</label>
+        <select id="voice" name="voice">
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+
+        <label for="musik">Nyanyi / Musik</label>
+        <select id="musik" name="musik">
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+
+        <label for="edit">Editing / Desain</label>
+        <select id="edit" name="edit">
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+
+        <label for="bahasa">Bahasa yang Dikuasai</label>
+        <input type="text" id="bahasa" name="bahasa" placeholder="Contoh: Indonesia, Inggris, Jepang">
+      </fieldset>
+
+      <!-- Bagian 5 (Tambahan No. 8) -->
+      <fieldset>
+        <legend>5. Ketersediaan PC / Laptop</legend>
+        <label>Apakah kamu punya PC/Laptop untuk streaming?</label>
+        <input type="radio" name="punya_pc" value="Ya" required> Ya
+        <input type="radio" name="punya_pc" value="Tidak"> Tidak
+
+        <label for="spesifikasi">Jika ya, sebutkan spesifikasi PC/Laptop:</label>
+        <textarea id="spesifikasi" name="spesifikasi" rows="3" placeholder="Contoh: Intel i5, RAM 16GB, GTX 1650, SSD 512GB"></textarea>
+      </fieldset>
+
+      <!-- Bagian 6 (Tambahan No. 11) -->
+      <fieldset>
+        <legend>6. Jam Tersedia untuk Streaming</legend>
+        <label>Pilih jam yang biasanya kamu bisa streaming:</label><br>
+        <input type="checkbox" name="jam_streaming[]" value="Pagi (07:00 - 11:00)"> Pagi (07:00 - 11:00)<br>
+        <input type="checkbox" name="jam_streaming[]" value="Siang (11:00 - 15:00)"> Siang (11:00 - 15:00)<br>
+        <input type="checkbox" name="jam_streaming[]" value="Sore (15:00 - 19:00)"> Sore (15:00 - 19:00)<br>
+        <input type="checkbox" name="jam_streaming[]" value="Malam (19:00 - 23:00)"> Malam (19:00 - 23:00)<br>
+        <input type="checkbox" name="jam_streaming[]" value="Larut Malam (23:00 ke atas)"> Larut Malam (23:00 ke atas)
+      </fieldset>
+
+      <!-- Bagian 7 -->
+      <fieldset>
+        <legend>7. Syarat & Ketentuan</legend>
+        <div class="terms-box">
+          <p><strong>Syarat & Ketentuan Pendaftaran:</strong></p>
+          <ul>
+            <li>Peserta berusia minimal 17 tahun.</li>
+            <li>Peserta bersedia menjaga etika dan profesionalitas selama beraktivitas sebagai VTuber.</li>
+            <li>Data pribadi yang diberikan adalah benar adanya.</li>
+            <li>Pihak penyelenggara berhak menolak pendaftaran tanpa pemberitahuan.</li>
+            <li>Dengan mendaftar, peserta menyetujui penggunaan data untuk keperluan rekrutmen.</li>
+          </ul>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="setuju" name="setuju" required>
+          <label for="setuju">Saya telah membaca dan menyetujui Syarat & Ketentuan.</label>
+        </div>
+      </fieldset>
+
+      <button type="submit">Kirim Pendaftaran</button>
+    </form>
+  </div>
+</body>
+</html>
